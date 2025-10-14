@@ -1,0 +1,17 @@
+{
+  "name": "test-contracts-usage",
+  "version": "1.0.0",
+  "description": "Test project to verify @pll/contracts package",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@pll/contracts": "file:.."
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}
