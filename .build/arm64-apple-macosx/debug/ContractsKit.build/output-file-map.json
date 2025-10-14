@@ -1,0 +1,17 @@
+{
+  "": {
+    "swift-dependencies": "/Users/ethankhoe/Development/pll-contracts/.build/arm64-apple-macosx/debug/ContractsKit.build/master.swiftdeps"
+  },
+  "/Users/ethankhoe/Development/pll-contracts/Sources/ContractsKit+Utilities.swift": {
+    "dependencies": "/Users/ethankhoe/Development/pll-contracts/.build/arm64-apple-macosx/debug/ContractsKit.build/ContractsKit+Utilities.d",
+    "object": "/Users/ethankhoe/Development/pll-contracts/.build/arm64-apple-macosx/debug/ContractsKit.build/ContractsKit+Utilities.swift.o",
+    "swiftmodule": "/Users/ethankhoe/Development/pll-contracts/.build/arm64-apple-macosx/debug/ContractsKit.build/ContractsKit+Utilities~partial.swiftmodule",
+    "swift-dependencies": "/Users/ethankhoe/Development/pll-contracts/.build/arm64-apple-macosx/debug/ContractsKit.build/ContractsKit+Utilities.swiftdeps"
+  },
+  "/Users/ethankhoe/Development/pll-contracts/Sources/ContractsKit.swift": {
+    "dependencies": "/Users/ethankhoe/Development/pll-contracts/.build/arm64-apple-macosx/debug/ContractsKit.build/ContractsKit.d",
+    "object": "/Users/ethankhoe/Development/pll-contracts/.build/arm64-apple-macosx/debug/ContractsKit.build/ContractsKit.swift.o",
+    "swiftmodule": "/Users/ethankhoe/Development/pll-contracts/.build/arm64-apple-macosx/debug/ContractsKit.build/ContractsKit~partial.swiftmodule",
+    "swift-dependencies": "/Users/ethankhoe/Development/pll-contracts/.build/arm64-apple-macosx/debug/ContractsKit.build/ContractsKit.swiftdeps"
+  }
+}

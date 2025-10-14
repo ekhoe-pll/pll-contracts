@@ -1,0 +1,191 @@
+{
+  "id": "create-user-api",
+  "version": {
+    "major": 1,
+    "minor": 2,
+    "patch": 0
+  },
+  "name": "Create User API",
+  "description": "API endpoint for creating new users in the system",
+  "metadata": {
+    "author": "PLL Team",
+    "tags": ["api", "user", "authentication"],
+    "documentationUrl": "https://docs.pll.com/api/users/create",
+    "deprecated": false
+  },
+  "createdAt": "2023-01-01T12:00:00Z",
+  "updatedAt": "2023-03-15T14:30:00Z",
+  "method": "POST",
+  "path": "/api/v1/users",
+  "requestSchema": {
+    "type": "object",
+    "required": ["email", "username", "password"],
+    "properties": {
+      "email": {
+        "type": "string",
+        "format": "email",
+        "description": "User's email address",
+        "minLength": 5,
+        "maxLength": 255
+      },
+      "username": {
+        "type": "string",
+        "description": "User's chosen username",
+        "minLength": 3,
+        "maxLength": 50,
+        "pattern": "^[a-zA-Z0-9_-]+$"
+      },
+      "password": {
+        "type": "string",
+        "description": "User's password",
+        "minLength": 8,
+        "maxLength": 128
+      },
+      "profile": {
+        "type": "object",
+        "description": "Optional profile information",
+        "properties": {
+          "firstName": {
+            "type": "string",
+            "description": "User's first name",
+            "maxLength": 100
+          },
+          "lastName": {
+            "type": "string",
+            "description": "User's last name",
+            "maxLength": 100
+          },
+          "avatarUrl": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to user's avatar image"
+          }
+        }
+      },
+      "preferences": {
+        "type": "object",
+        "description": "User preferences",
+        "properties": {
+          "notifications": {
+            "type": "object",
+            "properties": {
+              "email": {
+                "type": "boolean",
+                "description": "Enable email notifications",
+                "default": true
+              },
+              "push": {
+                "type": "boolean",
+                "description": "Enable push notifications",
+                "default": true
+              },
+              "sms": {
+                "type": "boolean",
+                "description": "Enable SMS notifications",
+                "default": false
+              }
+            }
+          },
+          "theme": {
+            "type": "string",
+            "enum": ["light", "dark", "auto"],
+            "description": "UI theme preference",
+            "default": "auto"
+          },
+          "language": {
+            "type": "string",
+            "description": "Preferred language code",
+            "default": "en",
+            "pattern": "^[a-z]{2}(-[A-Z]{2})?$"
+          }
+        }
+      }
+    }
+  },
+  "responseSchema": {
+    "type": "object",
+    "required": ["success", "data"],
+    "properties": {
+      "success": {
+        "type": "boolean",
+        "description": "Whether the request was successful"
+      },
+      "data": {
+        "type": "object",
+        "description": "Created user data",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique user identifier"
+          },
+          "email": {
+            "type": "string",
+            "description": "User's email address"
+          },
+          "username": {
+            "type": "string",
+            "description": "User's username"
+          },
+          "profile": {
+            "type": "object",
+            "description": "User profile information",
+            "properties": {
+              "firstName": {
+                "type": "string",
+                "description": "User's first name"
+              },
+              "lastName": {
+                "type": "string",
+                "description": "User's last name"
+              },
+              "avatarUrl": {
+                "type": "string",
+                "description": "URL to user's avatar image"
+              }
+            }
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp when user was created"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp when user was last updated"
+          }
+        }
+      },
+      "message": {
+        "type": "string",
+        "description": "Success or error message"
+      },
+      "errors": {
+        "type": "array",
+        "description": "Validation errors if any",
+        "items": {
+          "type": "object",
+          "properties": {
+            "field": {
+              "type": "string",
+              "description": "Field that has the error"
+            },
+            "message": {
+              "type": "string",
+              "description": "Error message"
+            },
+            "code": {
+              "type": "string",
+              "description": "Error code"
+            }
+          }
+        }
+      }
+    }
+  },
+  "auth": {
+    "type": "bearer",
+    "scopes": ["user:create"],
+    "optional": false
+  }
+}

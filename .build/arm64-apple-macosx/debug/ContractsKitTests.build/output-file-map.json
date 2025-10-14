@@ -1,0 +1,11 @@
+{
+  "": {
+    "swift-dependencies": "/Users/ethankhoe/Development/pll-contracts/.build/arm64-apple-macosx/debug/ContractsKitTests.build/master.swiftdeps"
+  },
+  "/Users/ethankhoe/Development/pll-contracts/Tests/ContractsKitTests.swift": {
+    "dependencies": "/Users/ethankhoe/Development/pll-contracts/.build/arm64-apple-macosx/debug/ContractsKitTests.build/ContractsKitTests.d",
+    "object": "/Users/ethankhoe/Development/pll-contracts/.build/arm64-apple-macosx/debug/ContractsKitTests.build/ContractsKitTests.swift.o",
+    "swiftmodule": "/Users/ethankhoe/Development/pll-contracts/.build/arm64-apple-macosx/debug/ContractsKitTests.build/ContractsKitTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/ethankhoe/Development/pll-contracts/.build/arm64-apple-macosx/debug/ContractsKitTests.build/ContractsKitTests.swiftdeps"
+  }
+}

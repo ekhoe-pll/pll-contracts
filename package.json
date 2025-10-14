@@ -1,0 +1,36 @@
+{
+  "name": "@pll/contracts",
+  "version": "1.0.0",
+  "description": "Shared contracts and schemas for PLL applications",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
+  "keywords": [
+    "contracts",
+    "schemas",
+    "types",
+    "pll"
+  ],
+  "author": "PLL",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pll/contracts-kit.git"
+  },
+  "publishConfig": {
+    "access": "restricted"
+  }
+}

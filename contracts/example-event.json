@@ -1,0 +1,100 @@
+{
+  "id": "user-created-event",
+  "version": {
+    "major": 1,
+    "minor": 0,
+    "patch": 0
+  },
+  "name": "User Created Event",
+  "description": "Event fired when a new user is created in the system",
+  "metadata": {
+    "author": "PLL Team",
+    "tags": ["user", "authentication", "lifecycle"],
+    "documentationUrl": "https://docs.pll.com/events/user-created",
+    "deprecated": false
+  },
+  "createdAt": "2023-01-01T12:00:00Z",
+  "updatedAt": "2023-01-01T12:00:00Z",
+  "eventType": "user.created",
+  "payload": {
+    "userId": {
+      "type": "string",
+      "description": "Unique identifier for the user",
+      "required": true
+    },
+    "email": {
+      "type": "string",
+      "description": "User's email address",
+      "required": true,
+      "validation": [
+        {
+          "type": "pattern",
+          "value": "^[\\w\\.-]+@[\\w\\.-]+\\.[a-zA-Z]{2,}$",
+          "message": "Must be a valid email address"
+        }
+      ]
+    },
+    "username": {
+      "type": "string",
+      "description": "User's chosen username",
+      "required": true,
+      "validation": [
+        {
+          "type": "min",
+          "value": 3,
+          "message": "Username must be at least 3 characters"
+        },
+        {
+          "type": "max",
+          "value": 50,
+          "message": "Username must be at most 50 characters"
+        },
+        {
+          "type": "pattern",
+          "value": "^[a-zA-Z0-9_-]+$",
+          "message": "Username can only contain alphanumeric characters, underscores, and hyphens"
+        }
+      ]
+    },
+    "timestamp": {
+      "type": "number",
+      "description": "Unix timestamp when the user was created",
+      "required": true
+    },
+    "profile": {
+      "type": "object",
+      "description": "User profile information",
+      "required": false,
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "description": "User's first name",
+          "required": false
+        },
+        "lastName": {
+          "type": "string",
+          "description": "User's last name",
+          "required": false
+        },
+        "avatarUrl": {
+          "type": "string",
+          "description": "URL to user's avatar image",
+          "required": false,
+          "validation": [
+            {
+              "type": "pattern",
+              "value": "^https?://.*",
+              "message": "Must be a valid URL"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "eventMetadata": {
+    "priority": "normal",
+    "category": "user-lifecycle",
+    "persistent": true,
+    "ttl": 86400000
+  }
+}

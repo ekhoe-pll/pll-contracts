@@ -1,0 +1,82 @@
+{
+  "id": "user-data-model",
+  "version": {
+    "major": 1,
+    "minor": 1,
+    "patch": 0
+  },
+  "name": "User Data Model",
+  "description": "Data model definition for users in the system",
+  "metadata": {
+    "author": "PLL Team",
+    "tags": ["data-model", "user", "authentication"],
+    "documentationUrl": "https://docs.pll.com/models/user",
+    "deprecated": false
+  },
+  "createdAt": "2023-01-01T12:00:00Z",
+  "updatedAt": "2023-06-01T10:15:00Z",
+  "modelName": "User",
+  "fields": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the user",
+      "required": true,
+      "validation": [
+        {
+          "type": "pattern",
+          "value": "^[a-zA-Z0-9_-]+$",
+          "message": "ID must contain only alphanumeric characters, underscores, and hyphens"
+        }
+      ]
+    },
+    "email": {
+      "type": "string",
+      "description": "User's email address",
+      "required": true,
+      "validation": [
+        {
+          "type": "pattern",
+          "value": "^[\\w\\.-]+@[\\w\\.-]+\\.[a-zA-Z]{2,}$",
+          "message": "Must be a valid email address"
+        }
+      ]
+    },
+    "username": {
+      "type": "string",
+      "description": "User's chosen username",
+      "required": true,
+      "validation": [
+        {
+          "type": "min",
+          "value": 3,
+          "message": "Username must be at least 3 characters"
+        },
+        {
+          "type": "max",
+          "value": 50,
+          "message": "Username must be at most 50 characters"
+        },
+        {
+          "type": "pattern",
+          "value": "^[a-zA-Z0-9_-]+$",
+          "message": "Username can only contain alphanumeric characters, underscores, and hyphens"
+        }
+      ]
+    },
+    "createdAt": {
+      "type": "date",
+      "description": "Timestamp when user was created",
+      "required": true
+    },
+    "updatedAt": {
+      "type": "date",
+      "description": "Timestamp when user was last updated",
+      "required": true
+    }
+  },
+  "constraints": {
+    "unique": ["email", "username"],
+    "indexes": ["email", "username", "createdAt"],
+    "foreignKeys": []
+  }
+}

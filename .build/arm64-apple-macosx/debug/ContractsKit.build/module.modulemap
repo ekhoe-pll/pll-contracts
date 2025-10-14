@@ -1,0 +1,4 @@
+module ContractsKit {
+    header "/Users/ethankhoe/Development/pll-contracts/.build/arm64-apple-macosx/debug/ContractsKit.build/ContractsKit-Swift.h"
+    requires objc
+}
